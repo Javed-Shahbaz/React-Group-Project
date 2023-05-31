@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import planet from '../assests/planet.svg';
-import './NavLink.css'
+import './NavLink.css';
 
 const NavLink = () => (
  <>
