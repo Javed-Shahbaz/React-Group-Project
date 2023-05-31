@@ -6,7 +6,9 @@ function App() {
   return (
     <BrowserRouter>
       <NavLink />
-      <Routes />
+      <Routes>
+
+      </Routes>
     </BrowserRouter>
   );
 }
