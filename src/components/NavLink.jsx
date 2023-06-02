@@ -8,7 +8,7 @@ const NavLink = () => (
     <div className="Nav">
       <div className="logo-container">
         <img src={planet} alt="logo" className="logo" />
-        <Link to="/" className="logo-title">Space Traveler&apos s Hub</Link>
+        <Link to="/" className="logo-title">Space Travelers Hub</Link>
       </div>
       <ul className="links">
         <li>
