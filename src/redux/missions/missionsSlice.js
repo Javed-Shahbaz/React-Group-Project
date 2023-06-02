@@ -1,57 +1,44 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+const API = 'https://api.spacexdata.com/v3/missions';
 
 const initialState = {
-  missionData: [
-    {
-      id: 0,
-      title: 'Thaicom',
-      Description: '...',
-      status: 'NOT A MEMBER',
-    },
-    {
-      id: 1,
-      title: 'Thaicom',
-      Description: '...',
-      status: 'NOT A MEMBER',
-    },
-    {
-      id: 2,
-      title: 'Thaicom',
-      Description: '...',
-      status: 'NOT A MEMBER',
-    },
-    {
-      id: 3,
-      title: 'Thaicom',
-      Description: '...',
-      status: 'NOT A MEMBER',
-    },
-    {
-      id: 4,
-      title: 'Thaicom',
-      Description: '...',
-      status: 'NOT A MEMBER',
-    },
-  ],
+  missionData: [],
+  status: 'notStarted',
+  error: null,
 };
+
+export const fetchMissions = createAsyncThunk('missionData/fetchMissions', async () => {
+  try {
+    const response = await axios.get(API);
+    const missionWithId = Object.entries(response.data).map(([id, missionName]) => ({
+      mission_id: id,
+      mission_Name: missionName,
+    }));
+
+    return missionWithId;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+});
 
 const missionsSlice = createSlice({
   name: 'missionData',
   initialState,
-  reducers: {
-    addMission: (state, action) => {
-      state.missionData.push(action.payload);
-    },
-    removeMission: (state, action) => {
-      state.missionData = state.missionData.filter((missionData) => missionData.id !== action.payload);
-    },
-    updateMissionStatus: (state, action) => {
-      const { missionId, status } = action.payload;
-      const mission = state.missionData.find((missionData) => missionData.id === missionId);
-      if (mission) {
-        mission.status = status;
-      }
-    },
+  reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(fetchMissions.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchMissions.fulfilled, (state, action) => {
+        state.status = 'success';
+        state.missionData = action.payload;
+      })
+      .addCase(fetchMissions.rejected, (state) => {
+        state.status = 'failed';
+      });
   },
 });
 
