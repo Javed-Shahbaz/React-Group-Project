@@ -1,0 +1,53 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #c5bdbd;
+  align-items: center;
+  justify-items: center;
+}
+
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+  border: 1px solid #c5bdbd;
+}
+
+tr {
+  background: #f9f9f9;
+}
+
+tr:nth-child(even) {
+  background: #fff;
+}
+
+th {
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+.main-container {
+  display: flex;
+  padding: 1rem;
+  align-content: center;
+  align-items: center;
+  width: auto;
+  justify-items: center;
+}
+
+.container-description {
+  width: 65%;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+button.Leave {
+  padding: 8px 16px;
+  border: 0.1rem solid #f00;
+  color: #f00;
+}
