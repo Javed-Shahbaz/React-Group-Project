@@ -1,12 +1,15 @@
-import './App.css';
-import { BrowserRouter, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavLink from './components/NavLink';
+import Missions from './components/pages/Mission/Missions';
 
 function App() {
   return (
     <BrowserRouter>
       <NavLink />
-      <Routes />
+      <Routes>
+        <Route path="/Missions" element={<Missions />} />
+      </Routes>
     </BrowserRouter>
   );
 }
