@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// eslint-disable-next-line
 import { fetchMissions, joinMission, leaveMission } from '../../Redux/Missions/MissionsSlice';
 import './Missions.css';
 

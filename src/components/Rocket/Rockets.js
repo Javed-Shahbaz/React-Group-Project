@@ -1,5 +1,6 @@
 import { useEffect, React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+// eslint-disable-next-line
 import { cancelReserved, fetchData, reservedRocket } from '../../Redux/Rockets/RocketSlice';
 import './Rocket.css';
 

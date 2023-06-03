@@ -1,5 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+// eslint-disable-next-line
 import missionsReducer, { fetchMissions, joinMission, leaveMission } from '../Redux/Missions/MissionsSlice';
 
 const middlewares = [thunk];
