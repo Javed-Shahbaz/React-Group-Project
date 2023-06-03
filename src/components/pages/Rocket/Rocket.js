@@ -1,6 +1,6 @@
-import { useEffect, React } from 'react';
+/* import { useEffect, React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchData } from '../../redux/Rockets/RocketSlice';
+import { fetchData } from '../../../redux/Rockets/RocketsSlice';
 
 function Rockets() {
   const dispatch = useDispatch();
@@ -15,4 +15,4 @@ function Rockets() {
   );
 }
 
-export default Rockets;
+export default ; */

@@ -16,20 +16,20 @@ const Missions = () => {
     dispatch(updateMissionStatus({ missionId, status: newStatus }));
   };
 
-  const view = missionView.map((missions) => (
-    <tr className="container" key={missions.mission_id}>
-      <td className="container-title">{missions.mission_name}</td>
-      <td className="container-description">{missions.description}</td>
-      <td className={missions.status === 'active member' ? 'active' : 'inactive'}>
-        {missions.status}
+  const view = missionView.map((mission) => (
+    <tr className="container" key={mission.mission_id}>
+      <td className="container-title">{mission.mission_name}</td>
+      <td className="container-description">{mission.description}</td>
+      <td className={mission.status === 'active member' ? 'active' : 'inactive'}>
+        {mission.status}
       </td>
       <td>
         <button
           type="button"
-          onClick={() => handleJoin(missions.mission_id, missions.status)}
-          className={missions.status === 'active member' ? 'Leave Mission' : 'Join Mission'}
+          onClick={() => handleJoin(mission.mission_id, mission.status)}
+          className={mission.status === 'active member' ? 'Leave Mission' : 'Join Mission'}
         >
-          {missions.status === 'active member' ? 'Leave Mission' : 'Join Mission'}
+          {mission.status === 'active member' ? 'Leave Mission' : 'Join Mission'}
         </button>
       </td>
     </tr>
@@ -42,7 +42,7 @@ const Missions = () => {
           <tr>
             <th className="container-title">Mission</th>
             <th className="container-title">Description</th>
-            <th className="container-title">Status</th>
+            <th className="container-titl">Status</th>
           </tr>
         </thead>
         <tbody>{view}</tbody>

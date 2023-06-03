@@ -1,6 +1,6 @@
 import { useEffect, React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchData } from '../../redux/Rockets/RocketSlice';
+import { fetchData } from '../../../redux/Rockets/rocketsSlice';
 
 function Rockets() {
   const dispatch = useDispatch();

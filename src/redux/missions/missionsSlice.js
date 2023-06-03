@@ -11,11 +11,11 @@ const initialState = {
 export const fetchMissions = createAsyncThunk('missions/fetchMissions', async () => {
   try {
     const response = await axios.get(API);
-    const missionWithId = Object.entries(response.data).map(([missionData, missions]) => ({
+    const missionWithId = response.data.map((missions) => ({
       mission_id: missions.mission_id,
-      mission_data: missionData,
       mission_name: missions.mission_name,
       description: missions.description,
+      status: 'NOT A MEMBER',
     }));
     return missionWithId;
   } catch (error) {
