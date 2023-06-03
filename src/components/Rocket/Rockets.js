@@ -1,30 +1,31 @@
 import { useEffect, React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { cancelReserved, fetchData, reservedRocket } from '../../redux/Rockets/RocketSlice';
-
+import { cancelReserved, fetchData, reservedRocket } from '../../Redux/Rockets/RocketSlice';
 import './Rocket.css';
 
 function Rockets() {
   const dispatch = useDispatch();
   const { data, status } = useSelector((state) => state.rockets);
   useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
+    if (data.length === 0) {
+      dispatch(fetchData());
+    }
+  }, [dispatch, data]);
   return (
-    <div className="rock-container">
-      {status && <div>Loading....</div>}
+    <div className="rocket-container">
+      {status && <div>Loading...</div>}
       {data && data.map((rocket) => (
-        <div key={rocket.id} className="mc">
+        <div key={rocket.id} className="main-container">
           <img
-            className="rocketImg"
+            className="rocket-img"
             src={rocket.flickr_images}
             alt={rocket.rocket_name}
           />
-          <div className="rock-content">
-            <h3 className="headr">{rocket.rocket_name}</h3>
-            <p className="desc">
+          <div className="rocket-content">
+            <h3 className="header">{rocket.rocket_name}</h3>
+            <p className="description">
               {rocket.reserved && (
-                <span className="res-markChanged">Reserved</span>
+                <span className="reserve-markChanged">Reserved</span>
               )}
               {rocket.description}
             </p>
@@ -33,7 +34,7 @@ function Rockets() {
             ) : (
               <button
                 type="submit"
-                className="res"
+                className="reserved"
                 onClick={() => dispatch(reservedRocket(rocket.id))}
               >
                 Reserve Rocket

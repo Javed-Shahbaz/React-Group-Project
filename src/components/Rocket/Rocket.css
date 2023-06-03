@@ -3,26 +3,26 @@
   padding: 0;
 }
 
-.rock-container {
+.rocket-container {
   margin: 50px 40px;
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.rocketImg {
+.rocket-img {
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
 }
 
-.headr {
+.header {
   font-size: 1.3rem;
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.res {
+.reserved {
   padding: 10px 30px;
   background-color: rgba(38, 115, 247);
   color: #fff;
@@ -32,7 +32,7 @@
   font-size: 1rem;
 }
 
-.cancel-res {
+.cancel-reserved {
   margin-top: 20px;
   background-color: #fff;
   font-size: 1rem;
@@ -42,7 +42,7 @@
   color: #5d6b7a;
 }
 
-.res-markChanged {
+.reserve-markChanged {
   background-color: #18a2b8;
   color: #fff;
   padding: 5px;
@@ -52,27 +52,27 @@
   font-weight: bold;
 }
 
-.desc {
-  line-height: 1.4rem;
+.description {
+  line-height: 1.6rem;
 }
 
-.mc {
+.main-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
 @media (min-width: 768px) {
-  .mc {
+  .main-container {
     flex-direction: row;
   }
 
-  .rocketImg {
+  .rocket-img {
     margin-left: 0;
     margin-right: 0;
   }
 
-  .rock-container {
+  .rocket-container {
     margin: 2% 5%;
   }
 }
