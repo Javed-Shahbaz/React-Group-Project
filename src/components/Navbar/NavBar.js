@@ -1,15 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import planet from '../../assests/planet.svg'
+import planet from '../../assets/planet.svg';
 import './Navbar.css';
 
 const NavBar = () => (
   <nav>
-    <div className="logo-header">
-      <img className="nav-img" src={planet} alt="planet" />
-      <h1 className="nav-header">Space Travelers&apos; Hub</h1>
-    </div>
-    <div>
+    <section className="Nav">
+      <div className="logo-header">
+        <img className="nav-img" src={planet} alt="planet" />
+        <h1 className="nav-header">Space Travelers&apos; Hub</h1>
+      </div>
       <div className="component-links">
         <NavLink to="rockets" className="links">
           Rockets
@@ -17,12 +17,14 @@ const NavBar = () => (
         <NavLink to="missions" className="links">
           Missions
         </NavLink>
-        <div className="links-separater" />
+        |
         <NavLink to="profile" className="links">
           My profile
         </NavLink>
       </div>
-    </div>
+    </section>
+
+    <hr />
   </nav>
 );
 
