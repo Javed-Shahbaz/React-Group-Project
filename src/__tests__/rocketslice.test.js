@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-// avoid ../Redux/Rockets/RocketSlice
+// eslint-disable-next-line
 import rocketReducer, { fetchData, reservedRocket, cancelReserved } from '../Redux/Rockets/RocketSlice';
 
 const middlewares = [thunk];
