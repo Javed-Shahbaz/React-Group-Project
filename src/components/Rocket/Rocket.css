@@ -63,16 +63,16 @@
 }
 
 @media (min-width: 768px) {
-  .main-container {
+  .mc {
     flex-direction: row;
   }
 
-  .rocket-img {
+  .rocketImg {
     margin-left: 0;
     margin-right: 0;
   }
 
-  .rocket-container {
+  .rock-container {
     margin: 2% 5%;
   }
 }
