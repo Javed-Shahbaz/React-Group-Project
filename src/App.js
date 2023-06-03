@@ -1,9 +1,9 @@
 import './App.css';
 import {
-  BrowserRouter, Routes, Route, Navigate,
+  BrowserRouter, Routes, Route,
 } from 'react-router-dom';
-import NavLink from './components/NavLink';
-import Rockets from './components/rocket';
+import NavLink from './components/Navbar/NavLink';
+import Missions from './components/pages/Mission/Missions';
 
 function App() {
   return (
@@ -11,9 +11,7 @@ function App() {
       <BrowserRouter>
         <NavLink />
         <Routes>
-          <Route path="/rockets" element={<Rockets />} />
-
-          <Route path="/" element={<Navigate to="/rockets" />} />
+          <Route path="/Missions" element={<Missions />} />
         </Routes>
       </BrowserRouter>
     </>
