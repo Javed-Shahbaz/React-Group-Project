@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
-import store from "./Redux/store.js";
+import store from '../Redux/store';
 import MissionList from '../components/Missions/Missions';
 
 test('Testing Mission', () => {

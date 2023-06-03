@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import rocketReducer, { fetchData, reservedRocket, cancelReserved } from '../../Redux/Rockets/RocketSlice';
+import rocketReducer, { fetchData, reservedRocket, cancelReserved } from '../Redux/Rockets/RocketSlice';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
