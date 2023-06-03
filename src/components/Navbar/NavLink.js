@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import planet from '../../assets/planet.svg';
-import './Navbar.css';
+import './NavLink.css';
 
 const NavBar = () => (
   <nav>
@@ -23,7 +23,6 @@ const NavBar = () => (
         </NavLink>
       </div>
     </section>
-
     <hr />
   </nav>
 );
