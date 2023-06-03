@@ -4,19 +4,19 @@ import axios from 'axios';
 const API = 'https://api.spacexdata.com/v3/missions';
 
 const initialState = {
-  missionData: [],
-  status: 'notStarted',
-  error: null,
+  missions: [],
+  loading: 'idle',
 };
 
-export const fetchMissions = createAsyncThunk('missionData/fetchMissions', async () => {
+export const fetchMissions = createAsyncThunk('missions/fetchMissions', async () => {
   try {
     const response = await axios.get(API);
-    const missionWithId = Object.entries(response.data).map(([id, missionName]) => ({
-      mission_id: id,
-      mission_Name: missionName,
+    const missionWithId = Object.entries(response.data).map(([missionData, missions]) => ({
+      mission_id: missions.mission_id,
+      mission_data: missionData,
+      mission_name: missions.mission_name,
+      description: missions.description,
     }));
-
     return missionWithId;
   } catch (error) {
     throw new Error(error.message);
@@ -24,12 +24,12 @@ export const fetchMissions = createAsyncThunk('missionData/fetchMissions', async
 });
 
 const missionsSlice = createSlice({
-  name: 'missionData',
+  name: 'missions',
   initialState,
   reducers: {
     updateMissionStatus: (state, action) => {
       const { missionId, status } = action.payload;
-      const mission = state.missionData.find((missionData) => missionData.mission_id === missionId);
+      const mission = state.missions.find((missions) => missions.mission_id === missionId);
       if (mission) {
         mission.status = status;
       }
@@ -42,13 +42,13 @@ const missionsSlice = createSlice({
       })
       .addCase(fetchMissions.fulfilled, (state, action) => {
         state.status = 'success';
-        state.missionData = action.payload;
+        state.missions = action.payload;
       })
       .addCase(fetchMissions.rejected, (state) => {
-        state.status = 'failed';
+        state.status = 'rejected';
       });
   },
 });
 
-export const { addMission, removeMission, updateMissionStatus } = missionsSlice.actions;
+export const { updateMissionStatus } = missionsSlice.actions;
 export default missionsSlice.reducer;

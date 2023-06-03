@@ -4,7 +4,7 @@ import './Missions.css';
 import { updateMissionStatus, fetchMissions } from '../../../redux/missions/missionsSlice';
 
 const Missions = () => {
-  const missionView = useSelector((state) => state.missionData.missionData);
+  const missionView = useSelector((state) => state.missions.missions);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,20 +16,20 @@ const Missions = () => {
     dispatch(updateMissionStatus({ missionId, status: newStatus }));
   };
 
-  const view = missionView.map((data) => (
-    <tr className="container" key={data.mission_id}>
-      <td className="container-title">{data.mission_name}</td>
-      <td className="container-description">{data.description}</td>
-      <td className={data.status === 'active member' ? 'active' : 'inactive'}>
-        {data.status}
+  const view = missionView.map((missions) => (
+    <tr className="container" key={missions.mission_id}>
+      <td className="container-title">{missions.mission_name}</td>
+      <td className="container-description">{missions.description}</td>
+      <td className={missions.status === 'active member' ? 'active' : 'inactive'}>
+        {missions.status}
       </td>
       <td>
         <button
           type="button"
-          onClick={() => handleJoin(data.mission_id, data.status)}
-          className={data.status === 'active member' ? 'Leave Mission' : 'Join Mission'}
+          onClick={() => handleJoin(missions.mission_id, missions.status)}
+          className={missions.status === 'active member' ? 'Leave Mission' : 'Join Mission'}
         >
-          {data.status === 'active member' ? 'Leave Mission' : 'Join Mission'}
+          {missions.status === 'active member' ? 'Leave Mission' : 'Join Mission'}
         </button>
       </td>
     </tr>

@@ -12,6 +12,10 @@ td {
   text-align: left;
   border: 1px solid #c5bdbd;
 }
+ 
+.active {
+  color: blue;
+}
 
 tr {
   background: #f9f9f9;
@@ -41,13 +45,23 @@ th {
   width: 65%;
 }
 
+td.member {
+  border: #c5bdbd;
+  border-radius: 0.5rem;
+  color: blue;
+}
+
+.inactive {
+  color: gray;
+}
+
 button {
-  padding: 8px 16px;
+  padding: 0.1rem 0.9rem;
   cursor: pointer;
 }
 
 button.Leave {
-  padding: 8px 16px;
-  border: 0.1rem solid #f00;
-  color: #f00;
+  padding: 0.1rem 0.9rem;
+  border: 0.1rem solid #ff0000;
+  color: #ff0000;
 }
