@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import missionsReducer, { fetchMissions, joinMission, leaveMission } from '../Redux/Missions/MissionsSlice';
+import missionsReducer, { fetchMissions, joinMission, leaveMission } from '../Redux/Missions/MissionsSlice.js';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
