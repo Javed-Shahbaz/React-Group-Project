@@ -11,20 +11,20 @@ function Rockets() {
     dispatch(fetchData());
   }, [dispatch]);
   return (
-    <div className="rocket-container">
-      {status && <div>Loading...</div>}
+    <div className="rock-container">
+      {status && <div>Loading....</div>}
       {data && data.map((rocket) => (
-        <div key={rocket.id} className="main-container">
+        <div key={rocket.id} className="mc">
           <img
-            className="rocket-img"
+            className="rocketImg"
             src={rocket.flickr_images}
             alt={rocket.rocket_name}
           />
-          <div className="rocket-content">
-            <h3 className="header">{rocket.rocket_name}</h3>
-            <p className="description">
+          <div className="rock-content">
+            <h3 className="headr">{rocket.rocket_name}</h3>
+            <p className="desc">
               {rocket.reserved && (
-                <span className="reserve-markChanged">Reserved</span>
+                <span className="res-markChanged">Reserved</span>
               )}
               {rocket.description}
             </p>
@@ -33,7 +33,7 @@ function Rockets() {
             ) : (
               <button
                 type="submit"
-                className="reserved"
+                className="res"
                 onClick={() => dispatch(reservedRocket(rocket.id))}
               >
                 Reserve Rocket
