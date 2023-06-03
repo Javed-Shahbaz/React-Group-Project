@@ -1,0 +1,57 @@
+:root {
+  --primary: #5482d6;
+  --secondary: #000;
+}
+
+.Nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 2rem;
+  padding: 0.1rem;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  width: auto;
+  height: auto;
+}
+
+.logo {
+  display: flex;
+  justify-items: center;
+  align-items: flex-start;
+  width: 4rem;
+  height: 4rem;
+}
+
+.logo-title {
+  display: flex;
+  width: auto;
+  height: auto;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  padding: 0.2rem;
+  gap: 1.5rem;
+}
+
+.link {
+  color: var(--primary);
+  text-decoration: none;
+}

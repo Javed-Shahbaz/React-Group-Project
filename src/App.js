@@ -1,26 +1,20 @@
-import React from 'react';
+import './App.css';
 import {
-  BrowserRouter as Router, Route, Routes, Navigate,
+  BrowserRouter, Routes, Route,
 } from 'react-router-dom';
-import Profile from './components/profile/Profile';
-import Missions from './components/Missions/Missions';
-import Rockets from './components/Rocket/Rockets';
-import NavBar from './components/Navbar/NavBar';
+import NavLink from './components/Navbar/NavLink';
+import Missions from './components/pages/Mission/Missions';
 
 function App() {
   return (
     <>
-      <Router>
-        <NavBar />
+      <BrowserRouter>
+        <NavLink />
         <Routes>
-          <Route path="/rockets" element={<Rockets />} />
-          <Route path="/missions" element={<Missions />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/" element={<Navigate to="/rockets" />} />
+          <Route path="/Missions" element={<Missions />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </>
   );
 }
-
 export default App;
